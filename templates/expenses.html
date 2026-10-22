@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>All expenses</h2>
+  {% if expenses %}
+  <table>
+    <tr><th>Description</th><th>Amount</th><th>Paid by</th><th>Split among</th></tr>
+    {% for e in expenses %}
+    <tr><td>{{ e.description }}</td><td>₹{{ "%.2f"|format(e.amount) }}</td><td>{{ e.payer }}</td><td>{{ e.people|join(", ") }}</td></tr>
+    {% endfor %}
+  </table>
+  <form method="post" action="/clear"><button type="submit">Clear all</button></form>
+  {% else %}<p>No expenses yet.</p>{% endif %}
+</div>
+{% endblock %}

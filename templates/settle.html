@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Balances</h2>
+  {% if balances %}
+  <table>
+    {% for name, amt in balances.items() %}
+    <tr><td>{{ name }}</td><td>{% if amt > 0 %}gets back ₹{{ amt }}{% elif amt < 0 %}owes ₹{{ -amt }}{% else %}settled{% endif %}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<p>No data yet.</p>{% endif %}
+</div>
+<div class="card">
+  <h2>Who pays whom</h2>
+  {% for s in settlements %}<p><b>{{ s["from"] }}</b> pays <b>{{ s["to"] }}</b> ₹{{ s["amount"] }}</p>
+  {% else %}<p>Everyone is settled up 🎉</p>{% endfor %}
+</div>
+{% endblock %}

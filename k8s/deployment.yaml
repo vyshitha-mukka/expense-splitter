@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expense-splitter
+spec:
+  replicas: 1          # keep 1: data is stored in memory
+  selector:
+    matchLabels:
+      app: expense-splitter
+  template:
+    metadata:
+      labels:
+        app: expense-splitter
+    spec:
+      containers:
+        - name: app
+          image: vyshitha/expense-splitter:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
