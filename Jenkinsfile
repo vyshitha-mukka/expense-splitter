@@ -7,7 +7,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USER = 'YOUR_DOCKERHUB_USERNAME'   // <-- change this
+        DOCKERHUB_USER = 'vyshitha'   // <-- change this
         IMAGE          = "${vyshitha}/expense-splitter"
     }
 
