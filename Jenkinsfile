@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         DOCKERHUB_USER = 'vyshitha'   // <-- change this
-        IMAGE          = "${vyshitha}/expense-splitter"
+        IMAGE          = "vyshitha/expense-splitter"
     }
 
     triggers {
